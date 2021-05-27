@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{564D6EF0-DC4D-462A-90B3-E20CAEE9B69F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Unity.TestAdapter</AssemblyName>
+    <TargetFramework>net48</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>fgeo</Authors>
+    <Version>0.1.0</Version>
+    <PackageProjectUrl>https://github.com/fgeo/vstest-unity-test-adapter</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fgeo/vstest-unity-test-adapter.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Unity, Visual Studio, Test Adapter, testadapter, vstest</PackageTags>
+    <BuildOutputTargetFolder>build</BuildOutputTargetFolder>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <IsTool>true</IsTool>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="15.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>

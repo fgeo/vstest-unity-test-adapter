@@ -1,0 +1,10 @@
+﻿# Build results
+/bin
+/obj
+
+# User-specific files
+*.suo
+*.user
+
+# Visual Studio cache/options directory
+/.vs
