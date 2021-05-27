@@ -21,3 +21,10 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+
+    - name: Upload Nuget Build Artifact
+      uses: actions/upload-artifact@v2.2.3
+      with:
+        name: nuget
+        path: bin/Release/*.nupkg
+        if-no-files-found: error
