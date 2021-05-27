@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityTestAdapter", "UnityTestAdapter.csproj", "{564D6EF0-DC4D-462A-90B3-E20CAEE9B69F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unity.TestAdapter", "Unity.TestAdapter.csproj", "{564D6EF0-DC4D-462A-90B3-E20CAEE9B69F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
