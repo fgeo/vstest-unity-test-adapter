@@ -5,7 +5,7 @@
     <TargetFramework>net48</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>fgeo</Authors>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <PackageProjectUrl>https://github.com/fgeo/vstest-unity-test-adapter</PackageProjectUrl>
     <RepositoryUrl>https://github.com/fgeo/vstest-unity-test-adapter.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -14,6 +14,7 @@
     <BuildOutputTargetFolder>build</BuildOutputTargetFolder>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <IsTool>true</IsTool>
+    <Description>VSTest Test Adapter for the Unity unit testing C framework for embedded</Description>
   </PropertyGroup>
 
   <ItemGroup>
