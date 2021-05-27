@@ -2,7 +2,6 @@
   <PropertyGroup>
     <ProjectGuid>{564D6EF0-DC4D-462A-90B3-E20CAEE9B69F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Unity.TestAdapter</AssemblyName>
     <TargetFramework>net48</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>fgeo</Authors>
