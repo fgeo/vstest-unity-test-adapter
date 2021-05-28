@@ -6,6 +6,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>UnityTestAdapter</PackageId>
     <Authors>fgeo</Authors>
+    <Copyright>Copyright (c) 2021 Florian George (fgeo)</Copyright>
     <Version>0.1.2</Version>
     <Description>VSTest Test Adapter for the Unity unit testing C framework for embedded</Description>
     <PackageProjectUrl>https://github.com/fgeo/vstest-unity-test-adapter</PackageProjectUrl>
