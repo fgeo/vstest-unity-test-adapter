@@ -12,18 +12,18 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore -c Release
 
     - name: Upload Nuget Build Artifact
-      uses: actions/upload-artifact@v2.2.3
+      uses: actions/upload-artifact@v3
       with:
         name: nuget
         path: bin/Release/*.nupkg
