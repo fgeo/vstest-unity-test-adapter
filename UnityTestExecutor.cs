@@ -108,20 +108,31 @@ namespace UnityTestAdapter
                     string line;
                     while ((line = process.StandardOutput.ReadLine()) != null)
                     {
-                        var match = Regex.Match(line, @"(TEST\(([\w\d]+), *([\w\d]+)\)) *([^\n]+)");
+                        var match = Regex.Match(line, @"^(TEST\(([\w\d]+), ?([\w\d]+)\)) *([^\n]+)$");
                         if (match.Success)
                         {
                             string testGroup = match.Groups[2].Value;
                             string testName = match.Groups[3].Value;
                             string result = match.Groups[4].Value;
-                            bool passed = result == "PASS";
+                            bool passed = result.EndsWith("PASS");
+                            string additionalOutput = null;
                             string errorStackTrace = null;
                             string errorMessage = null;
-                            if (!passed)
+                            if (passed)
                             {
-                                var splitFail = result.Split(new string[] { "::" }, StringSplitOptions.None);
-                                errorStackTrace = splitFail[0].Trim();
-                                errorMessage = splitFail[1].Trim();
+                                // Treat any additional non-space characters between test name and PASS as additional test output
+                                additionalOutput = result.Substring(0, result.Length - 4).Trim();
+                            }
+                            else
+                            {
+                                // Try to extract error location from fail message, fall back to using full result as message
+                                errorMessage = result.Trim();
+                                var splitFail = result.Split(new string[] { "::" }, 2, StringSplitOptions.None);
+                                if (splitFail.Length == 2)
+                                {
+                                    errorStackTrace = splitFail[0].Trim();
+                                    errorMessage = splitFail[1].Trim();
+                                }
                                 if (errorMessage.StartsWith("FAIL: "))
                                     errorMessage = errorMessage.Substring(6);
 
@@ -145,6 +156,8 @@ namespace UnityTestAdapter
                                 ErrorMessage = errorMessage,
                                 ErrorStackTrace = errorStackTrace
                             };
+                            if (!string.IsNullOrEmpty(additionalOutput))
+                                testResult.Messages.Add(new TestResultMessage(TestResultMessage.StandardOutCategory, additionalOutput));
                             frameworkHandle?.SendMessage(TestMessageLevel.Informational, $"  {testCase.DisplayName}: {testResult.Outcome}");
                             action(testResult);
                         }
